@@ -187,6 +187,7 @@ class NoteDetailController:UIViewController,UIActionSheetDelegate,UINavigationCo
     
     func shareToWeixin(){
         NSLog("weixin")
+        //todo
     }
     
     func setupSpeechRecognizer(){
