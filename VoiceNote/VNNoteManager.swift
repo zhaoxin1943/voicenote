@@ -81,6 +81,7 @@ class VNNoteManager {
     }
     
     func deleteNote(note:VNNote){
+        createDataPathIfNeeded()
         var filePath = docPath?.stringByAppendingPathComponent(note.noteID)
         NSFileManager.defaultManager().removeItemAtPath(filePath, error: nil)
     }

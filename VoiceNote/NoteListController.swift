@@ -81,4 +81,13 @@ class NoteListController:UITableViewController,UITableViewDataSource,UITableView
 
     }
     
+    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            var note = dataSource![indexPath.row]
+            VNNoteManager.sharedManager()!.deleteNote(note)
+            dataSource?.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+    }
+    
 }

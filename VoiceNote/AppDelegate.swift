@@ -58,12 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func addInitFileIfNeeded(){
         var userDefaults = NSUserDefaults.standardUserDefaults()
         
-        if (userDefaults.objectForKey("hasInitFile") as Bool){
+        if (!(userDefaults.objectForKey("hasInitFile") as Bool)){
             var aboutTitle  = NSLocalizedString("关于语音笔记",  comment: "")
-            var aboutText = NSLocalizedString("懒人笔记是一款为懒人设计的笔记本，你只需要通过语音输入，即可完成笔记的书写。\n同时支持发邮件，分享到朋友圈等附加功能。\n大部分情况下你无需动笔，只需要靠说，就可以轻松发邮件，是提高效率的好工具。\n开发者：http://github.com/liaojinxing",  comment: "")
+            var aboutText = NSLocalizedString("懒人笔记是一款为懒人设计的笔记本，你只需要通过语音输入，即可完成笔记的书写。\n同时支持发邮件，分享到朋友圈等附加功能。\n大部分情况下你无需动笔，只需要靠说，就可以轻松发邮件，是提高效率的好工具。\n开发者：https://github.com/zhaoxin1943/voicenote",  comment: "")
             var note = VNNote(title: aboutTitle, content: aboutText, createdDate:NSDate.date(), updateDate:NSDate.date())
             VNNoteManager.sharedManager()?.storeNote(note)
-            userDefaults.setBool(false, forKey: "hasInitFile")
+            userDefaults.setBool(true, forKey: "hasInitFile")
             userDefaults.synchronize()
         }
     }
